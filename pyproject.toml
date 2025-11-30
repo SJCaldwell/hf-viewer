@@ -1,0 +1,54 @@
+[project]
+name = "ptviewer"
+version = "0.1.0"
+description = "A terminal UI for exploring HuggingFace datasets sample by sample"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "Shane Caldwell"}
+]
+keywords = ["datasets", "huggingface", "tui", "pretraining", "machine-learning"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "textual>=0.40.0",
+    "datasets>=2.14.0",
+    "rich>=13.0.0",
+]
+
+[project.scripts]
+ptviewer = "ptviewer.explorer:main"
+ptsample = "ptviewer.sample:main"
+
+[project.urls]
+Homepage = "https://github.com/SJCaldwell/ptviewer"
+Repository = "https://github.com/SJCaldwell/ptviewer"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.0.0",
+    "ruff>=0.1.0",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+ignore = ["E501"]
